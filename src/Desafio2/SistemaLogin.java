@@ -7,21 +7,38 @@ public class SistemaLogin {
     public void sistemaLogin(){
         Scanner scanner = new Scanner(System.in);
 
-        String nome = scanner.nextLine();
-        int senha = scanner.nextInt();
+        System.out.print("Digite um nome para seu usuário: ");
+        String nomeCadastrado = scanner.nextLine();
 
-        String validarNome = nome;
-        int validarSenha = senha;
+        System.out.print("Crie uma senha: ");
+        String senhaCadastrada = scanner.nextLine();
+        System.out.println("                               ");
+        System.out.println("Usuário cadastrado com sucesso!");
+         System.out.println("                               ");
 
-        for (int i = 0; i >= 3; i++) {
+        int tentativas = 0;
+        boolean loginCerto = false;
+
+        while (tentativas < 3 && !loginCerto) {
+            System.out.println("Digite o nome cadastrado: ");
+            String nomeLogin = scanner.nextLine();
+
+            System.out.println("Digite sua senha:");
+            String senhaLogin = scanner.nextLine();
             
-            if (nome == validarNome && senha == validarSenha) {
-                System.out.println("Login feito com sucesso");
+            if (nomeLogin.equals(nomeCadastrado) && senhaLogin.equals(senhaCadastrada)) {
+                System.out.println("Login feito com sucesso!");
+                System.out.println("Acerto mizerávi...");
+                loginCerto = true;
             }else{
-                System.out.println("Senha ou nome incorretos");
+                tentativas++;
+                System.out.println("Nome ou senha incorretos");
+                System.out.println("Só restam " + (3 - tentativas) + " tentativas, se errar mais vezes irá bloquear seu login!!");
             }
-            
         }
-    
+
+        if (!loginCerto) {
+            System.out.println("Conta bloqueada, Você atingiu o limite de tentativas, esqueceu a senha né...");
+        }
     }
 }

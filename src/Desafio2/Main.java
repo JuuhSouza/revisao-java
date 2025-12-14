@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
         SistemaLogin sistemaLogin = new SistemaLogin();
         Tabuada tabuada = new Tabuada();
+        ContadorPalavras contadorPalavras = new ContadorPalavras();
         ListaComprar listaCompras = new ListaComprar();
-
         Produto sistemaProdutos = new Produto();
 
         Scanner scanner = new Scanner(System.in);
@@ -36,7 +36,7 @@ public class Main {
                     break;
 
                 case 3: 
-                    
+                    contadorPalavras.contadorPalavras();
                     break;
 
                 case 4: 
